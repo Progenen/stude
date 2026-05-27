@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python \"C:\\\\Users\\\\torti\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\a14403df-bad9-4c3f-9d1a-8abb391a2ee8\\\\8c36b983-9082-441f-b379-56efe1c204be\\\\skills\\\\docx\\\\scripts\\\\office\\\\unpack.py\" file.docx unpacked_file/)",
+      "Bash(pandoc file.docx -t markdown)",
+      "Bash(unzip -p file.docx word/document.xml)",
+      "Bash(unzip -p \"C:\\\\Users\\\\torti\\\\Work\\\\study\\\\file.docx\" word/document.xml)",
+      "Bash(python3 -c ' *)",
+      "Bash(node -e ' *)",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\torti\\\\Work\\\\study\\\\.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3456)",
+      "PowerShell(Stop-Process -Id 9896 -Force)",
+      "Bash(node gen_html.js)"
+    ]
+  }
+}
