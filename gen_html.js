@@ -71,9 +71,21 @@ function renderContent(content) {
         i++;
       }
       segments.push(seg);
+    } else if (item.style === 'code') {
+      // Explicit code style (fenced blocks, tables, diagrams)
+      const seg = {type: 'code', lines: []};
+      while (i < content.length && content[i].style === 'code') {
+        seg.lines.push(content[i].text);
+        i++;
+      }
+      segments.push(seg);
+    } else if (item.style === 'h4') {
+      segments.push({type: 'h4', text: item.text});
+      i++;
     } else if (isCodeLine(item.text)) {
       const seg = {type: 'code', lines: []};
-      while (i < content.length && content[i].style !== '16' && isCodeLine(content[i].text)) {
+      while (i < content.length && content[i].style !== '16' && content[i].style !== 'h4'
+             && content[i].style !== 'code' && isCodeLine(content[i].text)) {
         seg.lines.push(content[i].text);
         i++;
       }
@@ -158,7 +170,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Экзаменационные ответы — Алгоритмизация, программирование и БД</title>
+<title>Экзаменационные ответы — Python и инструментальные средства разработки</title>
 <style>
 /* ── THEMES ── */
 [data-theme="dark"] {
@@ -290,7 +302,7 @@ mark{background:rgba(108,142,245,.22);color:var(--accent);border-radius:2px;padd
 
 <div class="topbar">
   <div class="topbar-logo">&#128218; Ответы</div>
-  <div class="topbar-sub">Алгоритмизация, программирование и БД</div>
+  <div class="topbar-sub">Python · Инструментальные средства разработки</div>
   <div class="search-wrap">
     <span class="search-icon">&#128269;</span>
     <input type="text" id="searchInput" placeholder="Поиск (/) по вопросам и ответам..." autocomplete="off" spellcheck="false">
